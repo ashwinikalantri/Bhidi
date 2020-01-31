@@ -1,0 +1,38 @@
+---
+title: "Sevagram HDSS: Interviewer Report"
+author: "Ashwini Kalantri"
+date: "January 2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Import, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+library(readr); library(knitr); library(dplyr); library(foreach); library(doParallel)
+hh <- read_csv("hh.csv")
+ind <- read_csv("ind.csv")
+int <- sort(unique(hh$responsible))
+tab <- table(hh$responsible)
+tab_ind <- table(ind$responsible)
+a <- hh %>% group_by(responsible) %>% summarise(n_distinct(village))
+names(a)[2] <- paste("village")
+vil <- a$village
+```
+
+```{r logo, echo=FALSE, fig.align="center", out.width="75%"}
+knitr::include_graphics("hdss_long.png", dpi = 72)
+```
+
+## Sevagram HDSS
+
+The **Wave 0** of the Sevagram HDSS was started on July 16, 2019. 10 interviewers (`r sort(unique(hh$responsible))`) collected data from 4 PHC areas (`r sort(unique(hh$phc))`) of the Wardha Block.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results='asis'}
+for (i in 1:10){
+  phc <- hh %>% dplyr::filter(responsible == int[i])
+  phc_vector <- sort(unique(phc$phc))
+  cat(paste("###",int[i],"  \n", int[i], "collected the data from", tab[i], "households covering a population of",tab_ind[i],"from",vil[i],"villages from",phc_vector[1], ifelse(is.na(phc_vector[2]),"",paste(ifelse(is.na(phc_vector[3]),"&",","),phc_vector[2])), ifelse(is.na(phc_vector[3]),"",paste("&",phc_vector[3])), ifelse(is.na(phc_vector[2]),"PHC.","PHCs."),"  \n  \n"))
+}
+```

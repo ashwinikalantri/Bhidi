@@ -1,0 +1,75 @@
+---
+title: "Sevagram HDSS: Interviewer Report"
+author: "Ashwini Kalantri"
+date: "January 2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Import, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+library(readr); library(knitr); library(dplyr)
+#setwd("/Volumes/GoogleDrive/Shared drives/HDSS/")
+hh <- read_csv("hh.csv")
+ind <- read_csv("ind.csv")
+int <- sort(unique(hh$responsible))
+
+tab <- table(hh$responsible)
+tab_ind <- table(ind$responsible)
+
+a <- subset(hh, hh$responsible == "Alka Gaulkar")
+b <- subset(hh, hh$responsible == "Ankesh Jawalkar")
+c <- subset(hh, hh$responsible == "Ashwini Satone")
+d <- subset(hh, hh$responsible == "Chanda Shende")
+e <- subset(hh, hh$responsible == "Manisha Virulkar")
+f <- subset(hh, hh$responsible == "Manoj Pisudde")
+g <- subset(hh, hh$responsible == "Namdeo Bawane")
+h <- subset(hh, hh$responsible == "Nandkumar Dhabarde")
+i <- subset(hh, hh$responsible == "Sunil Lohe")
+j <- subset(hh, hh$responsible == "Swati Raut")
+```
+
+```{r echo=FALSE, fig.align="center", out.width="75%"}
+knitr::include_graphics("hdss_long.png", dpi = 72)
+```
+
+## Sevagram HDSS
+
+The **Wave 0** of the Sevagram HDSS was started on July 16, 2019. 10 interviewers (`r sort(unique(hh$responsible))`) collected data from 4 PHC areas (`r sort(unique(hh$phc))`) of the Wardha Block.
+
+### `r int[1]`
+`r int[1]` collected data from `r tab[1]` households covering a population of `r tab_ind[1]` from `r n_distinct(a$village)` villages of `r sort(unique(a$phc))` PHC(s).
+
+### `r int[2]`
+`r int[2]` collected data from `r tab[2]` households covering a population of `r tab_ind[2]` from `r n_distinct(b$village)` villages of `r sort(unique(b$phc))` PHC(s).
+
+### `r int[3]`
+`r int[3]` collected data from `r tab[3]` households covering a population of `r tab_ind[3]` from `r n_distinct(c$village)` villages of `r sort(unique(c$phc))` PHC(s).
+
+### `r int[4]`
+`r int[4]` collected data from `r tab[4]` households covering a population of `r tab_ind[4]` from `r n_distinct(d$village)` villages of `r sort(unique(d$phc))` PHC(s).
+
+### `r int[5]`
+`r int[5]` collected data from `r tab[5]` households covering a population of `r tab_ind[5]` from `r n_distinct(e$village)` villages of `r sort(unique(e$phc))` PHC(s).
+
+### `r int[6]`
+`r int[6]` collected data from `r tab[6]` households covering a population of `r tab_ind[6]` from `r n_distinct(f$village)` villages of `r sort(unique(f$phc))` PHC(s).
+
+### `r int[7]`
+`r int[7]` collected data from `r tab[7]` households covering a population of `r tab_ind[7]` from `r n_distinct(g$village)` villages of `r sort(unique(g$phc))` PHC(s).
+
+### `r int[8]`
+`r int[8]` collected data from `r tab[8]` households covering a population of `r tab_ind[8]` from `r n_distinct(h$village)` villages of `r sort(unique(h$phc))` PHC(s).
+
+### `r int[9]`
+`r int[9]` collected data from `r tab[9]` households covering a population of `r tab_ind[9]` from `r n_distinct(i$village)` villages of `r sort(unique(i$phc))` PHC(s).
+
+### `r int[10]`
+`r int[10]` collected data from `r tab[10]` households covering a population of `r tab_ind[10]` from `r n_distinct(j$village)` villages of `r sort(unique(j$phc))` PHC(s).
+
+
+```{r #forms, echo=FALSE}
+kable(tab, col.names = c("Interviewer","Forms"))
+```

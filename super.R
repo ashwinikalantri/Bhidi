@@ -1,0 +1,11 @@
+hh$super <- NA
+hh$super <- ifelse(hh$responsible == "Alka Gaulkar", "Rajni Gawande", hh$super)
+hh$super <- ifelse(hh$responsible == "Ankesh Jawalkar", "Rajni Gawande", hh$super)
+hh$super <- ifelse(hh$responsible == "Ashwini Satone", "Praveen Bhusari", hh$super)
+hh$super <- ifelse(hh$responsible == "Chanda Shende", "Alka Kakde / Nikesh Chide", hh$super)
+hh$super <- ifelse(hh$responsible == "Manisha Virulkar", "Surendra Belurkar", hh$super)
+hh$super <- ifelse(hh$responsible == "Manoj Pisudde", "Surendra Belurkar", hh$super)
+hh$super <- ifelse(hh$responsible == "Namdeo Bawane", "Jaiprakash More", hh$super)
+hh$super <- ifelse(hh$responsible == "Nandkumar Dhabarde", "Praveen Bhusari", hh$super)
+hh$super <- ifelse(hh$responsible == "Sunil Lohe", "Alka Kakde / Nikesh Chide", hh$super)
+hh$super <- ifelse(hh$responsible == "Swati Raut", "Jaiprakash More", hh$super)

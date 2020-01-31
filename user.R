@@ -1,0 +1,11 @@
+##Replacing usernames with names
+hh$responsible <- ifelse(hh$responsible == "MV05", "Manisha Virulkar", hh$responsible)
+hh$responsible <- ifelse(hh$responsible == "CS07", "Chanda Shende", hh$responsible)
+hh$responsible <- ifelse(hh$responsible == "AG06", "Alka Gaulkar", hh$responsible)
+hh$responsible <- ifelse(hh$responsible == "AS02", "Ashwini Satone", hh$responsible)
+hh$responsible <- ifelse(hh$responsible == "SR04", "Swati Raut", hh$responsible)
+hh$responsible <- ifelse(hh$responsible == "ankeshjawalkar", "Ankesh Jawalkar", hh$responsible)
+hh$responsible <- ifelse(hh$responsible == "dhabarde", "Nandkumar Dhabarde", hh$responsible)
+hh$responsible <- ifelse(hh$responsible == "sunillohe", "Sunil Lohe", hh$responsible)
+hh$responsible <- ifelse(hh$responsible == "namdeobawane24", "Namdeo Bawane", hh$responsible)
+hh$responsible <- ifelse(hh$responsible == "Manojpisudde", "Manoj Pisudde", hh$responsible)
